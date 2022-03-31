@@ -1,14 +1,10 @@
 #define motorPinRightDir  0//D2
 #define motorPinRightSpeed 5//D1
-#define motorPinLeftDir 2
-#define motorPinLeftSpeed 4
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(motorPinRightDir, OUTPUT);
   pinMode(motorPinRightSpeed, OUTPUT);
-  pinMode(motorPinLeftDir, OUTPUT);
-  pinMode(motorPinLeftSpeed, OUTPUT);
 
   Serial.begin(115200);
 }
@@ -18,14 +14,15 @@ void loop() {
   int dir = 0;
 
   delay(2200);
-  /*    digitalWrite(motorPinLeftDir, dir);
-      analogWrite(motorPinLeftSpeed, speed);
-      delay(2200);
-      digitalWrite(motorPinLeftDir, 1);
-      analogWrite(motorPinLeftSpeed, speed);*/
-
-  Drivetest3(motorPinLeftDir, motorPinLeftSpeed);
-  Drivetest3(motorPinRightDir, motorPinRightSpeed);
+  digitalWrite(motorPinRightDir, dir);
+  analogWrite(motorPinRightSpeed, speed);
+      delay(2200);      
+  digitalWrite(motorPinRightDir, 1);
+  analogWrite(motorPinRightSpeed, speed);
+      
+//Drivetest(motorPinRightDir, motorPinRightSpeed);
+//Drivetest2(motorPinRightDir, motorPinRightSpeed);
+ // Drivetest3(motorPinRightDir, motorPinRightSpeed);
 }
 
 
@@ -66,6 +63,8 @@ void Drivetest3(int Dirpin, int Speedpin) {
   }
 
 }
+
+
 
 
 void DriveDirSpeed(int Dirpin, int Speedpin, int Direction, int Speed) {
